@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style/font.css">
+    <link rel="stylesheet" href="/style/style.css">
+    <script src="https://kit.fontawesome.com/5199079283.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="./assets/images/done.png">
+    <title>Form</title>
+</head>
+
+<body>
+
+    <header class="maximum-width">
+        <div class="banner"></div>
+    </header>
+    <main>
+        <section>
+        <div class="popup" id="popup">
+            <img src="./assets/images/done.png" alt="">
+            <div>
+                <table>
+                    <tr>
+                        <th id="table"></th>
+                    </tr>
+                    <tr> <td><span id="output-name"></span></td></tr>
+                    <tr><td><span id="output-phone"></span></td></tr>
+                    <tr><td><span id="output-gmail"></span></td></tr>
+                    <tr><td><span id="output-address"></span></td></tr>
+                    <tr><td><span id="output-zipcode"></span></td></tr>
+                </table>
+            </div>
+            <button type="button" onclick="closepopup()">ok</button>
+        </div>
+        </section>
+
+        <section class=" main-sectoin maximum-width" id="form-validation">
+            <fieldset>
+                <legend>Form Validation</legend>
+                <form action="\" method="get" id="form">
+
+                    <div class="display-property input-property">
+                        <label for="contact-name">Name:-<sup id="name-astrick"></sup></label>
+                        <input type="text" name="username" autofocus autocomplete="off" placeholder="Username"
+                            id="contact-name" onkeyup="validateName()" onfocus="focus()">
+                        <span id="name-error"></span><span id="name-error-message"></span>
+                    </div>
+
+                    <div class="display-property input-property">
+                        <label for="contact-phoneno">Phone:- <sup id="phone-astrick"></sup></label>
+                        <input type="text" autocomplete="off" autofocus required placeholder="91 9629173840"
+                            id="contact-phoneno" maxlength="10" onkeyup="validatePhoneno()">
+                        <span id="phoneno-error"></span>
+                        <span id="phone-error-message"></span>
+                    </div>
+
+                    <div class="display-property input-property">
+                        <label for="contact-email">Email:- <sup id="email-astrick"></sup></label>
+                        <input type="email" autocomplete="off" placeholder="example@gmail.com" id="contact-email"
+                            required onkeyup="validateEmail()">
+                        <span id="email-error"></span>
+                        <span id="email-error-message"></span>
+                    </div>
+
+                    <div class="display-property input-property">
+                        <label for="contact-address">Address:- <sup id="address-astrick"></sup></label>
+                        <textarea name="" cols="21" rows="5" autocomplete="off" placeholder="Address" maxlength="200"
+                            required id="contact-address" onkeyup="validateAddress()"></textarea>
+                        <span id="address-error" class="address-span"></span>
+                        <span id="address-error-message"></span>
+                    </div>
+
+                    <div class="display-property input-property">
+                        <label for="contact-zipcode">Zip Code:- <sup id="zipcode-astrick"></sup></label>
+                        <input type="text" autocomplete="off" placeholder="629 100" id="contact-zipcode" maxlength="10"
+                            required onkeyup="validateZipcode()">
+                        <span id="zipcode-error"></span>
+                        <span id="zipcode-error-message"></span>
+                    </div>
+
+                    <div class="display-property country-border">
+                        <label for="country">Country:-</label>
+                        <select name="" id="country" autocomplete="off">
+                            <option value="" disabled selected>Please Select</option>
+                            <option value="">India</option>
+                            <option value="">Russia</option>
+                            <option value="">UK</option>
+                        </select>
+                    </div>
+
+                    <div class="display-property">
+                        <label for="genders">Gender:-</label>
+                        <div class="gender-input">
+                            <div><label for="">Male</label><input type="radio" name="gender" id="genders"></div>
+                            <div>
+                                <label for="">Female</label><input type="radio" name="gender" id="genders">
+                            </div>
+                            <div>
+                                <label for="">Others</label><input type="radio" name="gender" id="genders">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="display-property">
+                        <label for="preference">Preference:-</label>
+                        <div class="preference-input">
+                            <input type="checkbox" name="" id=""><label for="">Red</label>
+                            <input type="checkbox" name="" id=""><label for="">Green</label>
+                            <input type="checkbox" name="" id=""><label for="">Blue</label>
+                            <input type="checkbox" name="" id=""><label for="">Black</label>
+                        </div>
+                    </div>
+
+                    <div class="display-property">
+                        <label for="">Picture:-</label>
+                        <input type="file">
+                    </div>
+
+                    <div class="display-property input-property">
+                        <label for="user-password">password:- <sup id="password-astrick"></sup></label>
+                        <input type="password" id="user-password" autocomplete="off" placeholder="Password" required
+                            maxlength="8" onkeyup="validatepassword()">
+                        <span id="password-error"></span>
+                        <span id="password-error-message"></span>
+                    </div>
+
+                    <div class="input-property display-property"><label for="confirm-pasword">Confirm Password:- <span
+                                id="confirmpass-astrick"></span></label>
+                        <input type="password" required placeholder="Confirm-password" maxlength="8"
+                            id="confirm-pasword">
+                        <span id="demo"></span>
+                        <span id="confirm-error-message"></span>
+                    </div>
+
+                    <section class="action-buttons">
+                        <div>
+                            <input type="reset" onclick="clear()" class="primary-button">
+                        </div>
+
+                        <div>
+                            <button class="primary-button buttonsubmit " id="click" type="submit"
+                                onclick="submitted()"><a href="#">Save to
+                                    LocalStorage</a></button>
+                        </div>
+                    </section>
+                </form>
+
+            </fieldset>
+        </section>
+        <section>
+    </main>
+
+    <footer class="maximum-width">
+        <div class="banner"></div>
+    </footer>
+
+    <script>
+        function closepopup() {
+            popup.classList.remove("open-popup","blur");
+        }
+    </script>
+    <script src="./index.js"></script>
+</body>
+
+</html>
